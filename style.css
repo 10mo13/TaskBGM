@@ -1,0 +1,687 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+
+*{
+    font-family: 'M PLUS 1p', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 350;
+    /* background-color: #a1a1a1; */
+}
+
+.main{
+    /* background: linear-gradient(to right, rgb(216, 72, 146), rgb(214, 173, 106)); */
+    /* background: linear-gradient(to right, rgb(72, 216, 144), rgb(106, 209, 214)); */
+    background: linear-gradient(to right, rgb(72, 216, 144), rgb(106, 209, 214));
+    width: 100vw;
+    height: 100%;
+    /* width:16em; */
+    margin:0 auto;
+    min-width: 600px;
+    /* transition: all 0.4s;  バグ */
+    z-index: 0;
+    position: relative;
+    display: block;
+}
+
+.main::before{
+    content: "";
+    background: linear-gradient(to right, rgb(216, 72, 146), rgb(214, 173, 106));
+    width: 100vw;
+    height: 100%;
+    margin:0 auto;
+    position: absolute;
+    left: 0;
+    min-width: 600px;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.main::after{
+    content: "";
+    background: linear-gradient(to right, rgb(72, 216, 144), rgb(106, 209, 214));
+    width: 100vw;
+    height: 100%;
+    margin:0 auto;
+    position: absolute;
+    left: 0;
+    min-width: 600px;
+    z-index: -2;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* .main:hover:before{
+    opacity: 0;
+} */
+
+header {
+    width: 100%;
+    padding: 10px 0% 10px;
+    /* background-color: rgb(174, 224, 255); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+header h1.logo{
+    font-size: 20px;
+    /* padding: 6px; */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #808080;
+}
+.logoImg{
+    height: 45px;
+    width: 45px;
+    margin-left: 4vw;
+    filter: drop-shadow(2px 2px 1px #808080);
+}
+
+a {	
+    text-decoration: none;
+    color: #f6f6f6;
+ }
+
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+ }
+
+ li {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+ }
+
+ nav.pc-nav {
+    margin: 0 0 0 auto;
+    margin-right: 5vw;
+ }
+
+ nav ul li a{
+    transition: all 0.2s;
+ }
+
+ nav ul li a:hover {
+    color: rgb(74, 192, 255);
+ }
+
+/* モーダルウィンドウ */
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(0, 0, 0, 0.32);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modalScroll{
+    background: #fff;
+    /* overflow-y: scroll; */
+    height: 70vh;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 70%;
+    border-radius: 20px;
+}
+.ScrollContent{
+    overflow-y: scroll;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 60vh;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-55%);
+    width: 95%;
+    border-radius: 20px;
+}
+::-webkit-scrollbar{
+    border-radius: 10px;
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #b6b6b6;
+    border-radius: 10px;
+ }
+.modal__content{
+    color: rgb(49, 49, 49);
+    text-align: center;
+}
+.modal__content h1{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.modal__content h3{
+    padding: 10px;
+    padding-bottom: 40px;
+}
+.js-modal-close{
+    color: #555;
+}
+
+
+body{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(224, 224, 224);
+    margin:auto;
+
+    overflow-x: hidden; /*画面横スクロール非表示、禁止*/
+    overflow: hidden; /*画面縦スクロール非表示、禁止*/
+}
+
+
+.Box{
+    max-width: auto;
+    height: 100%;
+    /* background-color: #000; */
+
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+    /* color: #fff; */
+
+    min-width: 500px;  /*画面の最小幅*/
+}
+
+.mask{
+    height: 100%;
+    /* padding-top: 50px; */
+    /* -webkit-mask-image: linear-gradient(transparent, #000 15vh, 100%, transparent); */
+    /* mask-image: linear-gradient(transparent, black 80em); */
+
+    /* -webkit-mask-image: linear-gradient(to top, black 91%, rgba(0, 0, 0, 0) 94%); */
+    /* mask-image: linear-gradient(to top, black 91%, rgba(0, 0, 0, 0) 94%); */
+
+    /* 上は6％から10％にかけて消えるマスクグラデーション。下は97から100％ */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 6%, black 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 94%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 6%, black 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 94%);
+    position: relative;
+
+}
+
+.maskScroll{
+    overflow-y: scroll;
+    box-sizing: border-box;
+    /* padding: 1em; */
+    height: 100%;
+}
+
+.maskScroll::-webkit-scrollbar{
+    display: none;
+    
+}
+
+/* 
+h1,h2{
+    transform: translateY(80px);
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    transform: translateY(160px);
+} */
+
+.flex h2{
+    /* margin-top: 20px; */
+    padding: 20px;
+}
+
+.blank{  /*ヘッダー分の空白*/
+    /* padding-top: 100px; */
+    padding-top: 8vh;
+}
+
+.TimerBackground1, .TimerBackground2{
+    box-sizing: border-box;
+    /* background: rgba(255, 255, 255, 0.227); */
+    /* padding-top: 35px; */
+    height: 425px;
+    position: relative;
+    
+}
+
+.SetDisplay1, .SetDisplay2{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.CountDisplay1, .CountDisplay2{
+    color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.TaskName{
+    font-size: 25px;
+    margin-top: -75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* タイマー周りのサークル */
+.circle{
+    width: 100%;
+    /* height: 500px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* CSS */
+/* html {  height: 100%;} */
+
+#svg{
+    width: 400px;
+    height: 400px;
+    transform: rotate(-90deg);
+    display:block;
+    margin: 0 auto;
+}
+circle {
+    transition: stroke-dashoffset 0.3s linear; /*遅すぎるとバーの追従が合わないので速め*/
+    stroke: #ffffff;
+    stroke-width: 0.4em;  /*線の太さ*/
+}
+#bar1 {
+  /* stroke: #ff27274b; */
+  transition: all 0.3s;
+  /* stroke-opacity: 1; */
+}
+#bar2{
+    /* stroke: #33c4914b; */
+    transition: all 0.3s;
+}
+#num{
+  font-size:2em;
+  text-anchor:middle;
+  /* dominant-baseline:central; */
+}
+
+
+
+/* スライダーの設定 */
+.input-range{
+    margin-top: -40px;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.346);
+    height: 10px;
+    width: 100%;
+    border-radius: 15px;
+    outline: 0;
+
+    /* --slider-fill-color1: white;
+    border: initial;
+    background-clip: content-box; */
+
+}
+
+.input-range::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    background:rgb(255, 255, 255);
+    height: 20px;
+    width: 20px;
+    border-radius:50%;
+    
+}
+
+.bar1, .bar2{
+    margin-top: -15px;
+    height: 10px;
+    background   : white;
+    border-radius: 15px;
+}
+
+.barBox3{
+    width: 50%;
+}
+
+/* #start_button,#reset_button {
+    color: #ffffff;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+
+    background: rgba(255, 255, 255, 0);
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+} */
+
+#start_button, #reset_button,
+#start_button2, #reset_button2{
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+}
+
+
+.StartIcon, .ResetIcon{
+    /* background: rgba(255, 255, 255, 0.343); */
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto; */
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.ResetIcon{
+    margin-right: 80px;
+    margin-left: 40px;
+}
+.CircleBack{
+    background: rgba(255, 255, 255, 0.208);
+    border-radius: 50%;
+    z-index: -1;
+    width: 90px;
+    height: 90px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    box-shadow: 4px 6px 7px 1px rgba(108, 85, 97, 0.308);
+}
+.CircleBack2{
+    /* border-radius: 50%; */
+    z-index: -1;
+    width: 84px;
+    height: 84px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    border-radius: 50%;
+    box-shadow: 4px 6px 7px 1px rgba(108, 85, 97, 0.308);
+}
+#ResetSVG{
+    width: 100%;
+    height: 100%;
+    display:block;
+    margin: 0 auto;
+}
+.CircleBack2 circle{
+    stroke: rgba(247, 231, 238, 0.708);
+    stroke-width: 0.1rem;
+}
+.StopIcon{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+}
+/* .ButtonGroup{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    position: relative;
+} */
+.StartDisplay1, .StopDisplay1, .ResetDisplay1,
+.StartDisplay2, .StopDisplay2, .ResetDisplay2{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    transition: all 0.4s;
+}
+.StartDisplay1, .StopDisplay1,
+.StartDisplay2, .StopDisplay2{
+    color: rgb(255, 255, 255);
+}
+
+.ResetDisplay1, .ResetDisplay2{
+    color: rgba(239, 239, 239, 0.3);
+}
+
+
+/* .input-range::-webkit-slider-runnable-track{
+    -webkit-appearance:none;
+    height: 100%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.523);
+    border-radius: 20px;
+    outline: 0;
+} */
+
+/* .input-range::-webkit-meter-even-less-good-value{
+    -webkit-appearance:none;
+    background: white;
+    height: auto;
+    width: auto;
+} */
+
+
+/* .input-range::-ms-fill-lower{
+    -webkit-appearance:none;
+    background:rgba(255, 255, 255, 0.935);
+    height: auto;
+    width: 100%;
+} */
+
+.input-range::-moz-range-track{
+    background: linear-gradient(90deg,black 50%,grey 50%);
+    width: 100%;
+}
+
+#bargroup1 ,#bargroup2{
+    /* width: 200px; */
+    height: auto;
+    width: 40%;
+    min-width: 300px;
+    max-width: 450px;
+    padding: 15px;
+}
+
+.time{
+    margin-bottom: 20px;
+}
+
+.countdown-container {
+    margin: 10rem;
+    display: flex;
+}
+
+/* .time{
+    margin: .2rem;
+    padding: 1rem;
+    font-size: 2rem;
+} */
+
+/* 
+#hour,#min,#sec{
+    font-size: 1rem;
+    margin-right: 1rem;
+} */
+
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+#play{
+    padding: 0.5em 1.5em;
+    border: 2px solid rgba(255, 255, 255, 0.437);
+    border-radius: 0.6em;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    /* transition: all 0.4s; */
+    transition: background-color 400ms, border 400ms, box-shadow 400ms ease-in-out, color 400ms ease-in-out;
+
+    /* color: rgba(255, 255, 255, 0);
+    background-color: rgb(255, 71, 71);
+    background-clip: text, transparent;
+    -webkit-background-clip: text,transparent; */
+}
+
+#play:hover{
+    box-shadow: 0 0 40px 40px #ffffff inset;
+    background-color: white;
+    color: #ff6565;
+    outline: 0;
+    border: 2px solid rgb(255, 255, 255);
+    
+    /* background-color: white; */
+
+     /* 文字色を透明化 */
+  /* -webkit-text-fill-color: transparent; */
+  /* 背景を文字でマスク */
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+
+
+.YoutubeURL{
+    width: 40vw;
+    min-width: 200px;
+    max-width: 400px;
+    height: 40px;
+    /* background-color:transparent; */
+    background-color: rgba(232, 227, 227, 0.853); /*rgba(255, 255, 255, 0.5)*/
+    outline: none;
+    border: none;
+    /* color: rgba(17, 17, 17, 0.772); */
+    color: #555;
+    padding: 18px;
+    margin-right: 20px;
+    box-shadow: inset 5px 5px 4px 5px #988f947f, inset -5px -5px 5px 5px rgb(240, 239, 239);
+
+    /* 角を隠して丸くする */
+    /* clip-path: inset(0px 0px 0px round 10px); */
+    border-radius: 15px;
+    /* 長くてテキストボックスに収まらない後半の文章を「…」で省略表示 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.YoutubeURL::selection{
+    background-color: rgba(236, 167, 107, 0.854);
+}
+
+.URLblank{
+    padding-top: 5px;
+    padding-bottom : 10px ;
+}
+
+#TimerDisplay{
+    font-size: 50px;
+    
+}
+
+.CountDisplay1, .CountDisplay2{      /* 同じタグが上にある… */
+    margin-top: 1%; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.MovieBrock{
+    /* display: block; */
+    height: 0;
+    width: 100%;
+    /* padding: 200px; */
+    position: relative;
+    padding-top: 56.25%;
+    max-width: 600px;
+    
+    /* 600:  = 16:9  16x = 5400*/
+}
+
+.MovieBrock iframe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-height: 337.5px;
+}
+
+#sample01, #sample02{
+    padding: 30px;
+}

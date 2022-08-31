@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskBGM</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <img class="logoImg" src="TaskBGM_logo.png">
+        <h1 class="logo">
+            TaskBGM
+        </h1>
+        <nav class="pc-nav">
+            <ul>
+                <li><a href="javascript:ToTask();">TASK</a></li>
+                <li><a href="javascript:ToBreak();">BREAK</a></li>
+                <li><a class="js-modal-open" href="">HELP</a></li>
+                <!-- <li><a href="#">CONTACT</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main">
+
+        <div class="Box">
+            <div class="mask">
+                <div class="maskScroll">
+                    
+
+    <div class="blank"></div>
+    <br>
+
+
+    <!-- <div class="flex">
+    <h2>タスク</h2>
+    </div> -->
+<div id="TaskHeight">
+    <!-- ベースとなる範囲。タイマーの動作状況によって、SetDisplayクラスとCountDisplayクラスをJSからjQueryを操作し、フェードで切り替える -->
+<div class="TimerBackground1">
+    
+        <div id="Task" class="SetDisplay1">
+            <div class="flex">
+                <h2>タスク</h2>
+                </div>
+    <!-- <h1 id="TimerDisplay">
+        <div class="flex">
+            <div id="largehour1" class="time_display"><span id="hour_display">00</span></div>:
+            <div id="largeminute1"class="time_display"><span id="minute_display">00</span></div>:
+            <div id="largesecond1" class="time_display"><span id="second_display">30</span></div>
+        </div>
+    </h1><br> -->
+    <h1 id="TimerDisplay">
+        <div class="flex">
+            <div class="time_display"><span>00</span></div>:
+            <div class="time_display"><span>25</span></div>:
+            <div class="time_display"><span>00</span></div>
+        </div>
+    </h1><br>
+
+<div class="flex">
+        <div id="bargroup1">
+    <div class="time">時：<span id="hour_value">0</span><br>
+        <input id="hour1" class="input-range" type = "range" min = "0" max = "23" step = "1" value = "0" onclick="BarClick(1)"><div class="barBox1 bar1"></div><br></div>
+    <div class="time">分：<span id="minute_value">25</span><br>
+        <input id="minute1" class="input-range" type="range" min="0" max="59" step="1"  value="25"  onclick="BarClick(1)"><div class="barBox2 bar1"></div><br>  </div>
+    <div class="time">秒：<span id="second_value">0</span><br>
+        <input id="second1" class="input-range" type="range" min="0" max="59" step="1" value="0"   onclick="BarClick(1)"><div class="barBox3 bar1"></div><br> </div></div>
+    <br>
+ </div></div>
+
+    <div class="CountDisplay1">
+        <div class="circle" id="container">
+            <h1 id="TimerDisplay" class="CountDisplay1">
+                <biv class="TaskName">タスク</biv>
+                <div class="flex">
+                    <div id="largehour1" class="time_display1"><span id="hour_display">00</span></div>:
+                    <div id="largeminute1"class="time_display1"><span id="minute_display">25</span></div>:
+                    <div id="largesecond1" class="time_display1"><span id="second_display">00</span></div>
+                </div>
+            </h1><br>
+            <svg id="svg" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <circle r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
+                <circle id="bar1" r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
+                <!-- ↑stroke-dasharray="565.48(default)"の中はr * 2 * 3.14の数値を入れる(rのデフォルトは90)  -->
+                <!-- <text id="num" x="50%" y="50%">100%</text> -->
+              </svg>
+                <!-- <label for="percent">Type a percent!</label>
+                <input id="percent" name="percent"> -->
+
+        </div>
+    </div>
+
+</div>
+
+    <!-- スタート、ストップ、リセットボタン1　レイアウト -->
+    <div class="flex">
+
+        <div class="ResetIcon">
+            <!-- name="reload-circle-outline" -->
+            <ion-icon name="reload-outline" class="ResetDisplay1" style="font-size:50px" ></ion-icon>
+            <input type="button" id="reset_button" value="" onclick="reset(1)" disabled>
+            <div class="CircleBack2">
+                <svg id="ResetSVG" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="41" cx="42" cy="42" fill="transparent" stroke-dasharray="942" stroke-dashoffset="0"></circle>
+                    <!-- <circle id="bar1" r="150" cx="200" cy="200" fill="transparent" stroke-dasharray="942.47" stroke-dashoffset="0"></circle> -->
+                  </svg>
+            </div>
+        </div>
+        
+            <div class="StartIcon">
+                <!-- name="play-circle-outline" -->
+            <ion-icon name="play-outline" class="StartDisplay1" style="font-size:60px;  padding-left: 10px"></ion-icon>
+            <div class="StopIcon">
+                <!-- name="pause-circle-outline" -->
+                <ion-icon name="pause-outline" class="StopDisplay1"  style="font-size:60px"></ion-icon></div>
+                <input type="button" id="start_button" value="" onclick="start(1)">
+                <div class="CircleBack"></div>
+            </div>
+        
+    </div>
+
+    <br>
+    <div class="flex">YoutubeURL</div>
+    <div class="URLblank">
+        <div class="flex">
+
+            <input class="YoutubeURL" type="text" onclick="selectAll(this)" onmouseover="hoverNow()" onmouseout="hoverEnd()"value="https://www.youtube.com/watch?v=Rtt0u_dioi8">
+        
+            <input type="button" id="play" value="set" onclick="changeURL(0)" >
+        </div>
+    </div>
+
+ <div class="flex">
+    <div class="MovieBrock">
+        <div id="sample01"></div><br> <!-- Youtube -->
+    </div>
+</div>
+
+</div>
+
+    
+<div class="blank"></div>
+    
+    <!-- <br><br><br><br>
+    <div class="flex">
+    <h2>休憩</h2><br>
+    </div> -->
+
+<div class="TimerBackground2">
+    
+        <div id="Break" class="SetDisplay2">
+            <div class="flex">
+                <h2>休憩</h2><br>
+                </div>
+    <!-- <h1 id="TimerDisplay">
+        <div class="flex">
+            <div id="largehour2" class="time_display"><span id="hour_display">00</span></div>:
+            <div id="largeminute2"class="time_display"><span id="minute_display">00</span></div>:
+            <div id="largesecond2" class="time_display"><span id="second_display">30</span></div>
+        </div>
+    </h1><br> -->
+
+    <h1 id="TimerDisplay">
+        <div class="flex">
+            <div class="time_display"><span>00</span></div>:
+            <div class="time_display"><span>05</span></div>:
+            <div class="time_display"><span>00</span></div>
+        </div>
+    </h1><br>
+
+    
+    <div class="flex">
+        <div id="bargroup2">
+        <div class="time">時：<span id="hour_value2">0</span><br><input id="hour2" type = "range" class="input-range" min = "0" max = "23" step = "1" value = "0" onclick="BarClick(2)"><div class="barBox4 bar2"></div><br></div>
+        <div class="time">分：<span id="minute_value2">5</span><br><input id="minute2" type="range" class="input-range" min="0" max="59" step="1"  value="5"  onclick="BarClick(2)"><div class="barBox5 bar2"></div><br>  </div>
+        <div class="time">秒：<span id="second_value2">0</span><br><input id="second2" type="range" class="input-range" min="0" max="59" step="1" value="0"   onclick="BarClick(2)"><div class="barBox6 bar2"></div><br> </div></div>
+         <br>
+    </div></div>
+
+    <div class="CountDisplay2">
+        <div class="circle" id="container">
+            <h1 id="TimerDisplay" class="CountDisplay2">
+                <biv class="TaskName">休憩</biv>
+                <div class="flex">
+                    <div id="largehour2" class="1"><span id="hour_display">00</span></div>:
+                    <div id="largeminute2"class="time_display1"><span id="minute_display">00</span></div>:
+                    <div id="largesecond2" class="time_display1"><span id="second_display">30</span></div>
+                </div>
+            </h1><br>
+            <svg id="svg" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <circle r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
+                <circle id="bar2" r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
+                <!-- ↑stroke-dasharray="565.48(default)"の中はr * 2 * 3.14の数値を入れる(rのデフォルトは90)  -->
+                <!-- <text id="num" x="50%" y="50%">100%</text> -->
+              </svg>
+                <!-- <label for="percent">Type a percent!</label>
+                <input id="percent" name="percent"> -->
+
+        </div>
+    </div>
+</div>
+
+    <!-- スタート、ストップ、リセットボタン2　レイアウト -->
+    <div class="flex">
+        <div class="ResetIcon">
+            <ion-icon name="reload-outline" class="ResetDisplay2" style="font-size:50px" ></ion-icon>
+            <input type="button" id="reset_button2" value="" onclick="reset(2)" disabled><br>
+            <div class="CircleBack2">
+                <svg id="ResetSVG" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <circle r="41" cx="42" cy="42" fill="transparent" stroke-dasharray="942" stroke-dashoffset="0"></circle>
+                </svg>
+                <!-- <input type="button" id="stop_button2" value="stop" style="background-color:aliceblue;text-decoration-color: aqua" onclick="stop(2,true)" disabled> -->
+                
+            </div>
+        </div>
+        <div class="StartIcon">
+            
+            <ion-icon name="play-outline" class="StartDisplay2" style="font-size:60px;  padding-left: 10px"></ion-icon>
+            <div class="StopIcon">
+                <ion-icon name="pause-outline" class="StopDisplay2"  style="font-size:60px"></ion-icon>
+                <input type="button" id="start_button2" value="" onclick="start(2)">
+                <div class="CircleBack"></div>
+            </div>
+        </div>
+    </div>
+
+            <br>
+            <div class="flex">YoutubeURL</div>
+            <div class="URLblank">
+            <div class="flex">
+                <input class="YoutubeURL" type="text" onclick="selectAll(this)" onmouseover="hoverNow()" onmouseout="hoverEnd()" value="https://www.youtube.com/watch?v=zZQTJjOUk1k">
+        
+                <input type="button" id="play" value="set" onclick="changeURL(1)" >
+            </div>
+            </div>
+
+    <div class="flex">
+        <div class="MovieBrock">
+        <div id="sample02"></div><br> <!-- Youtube -->
+        </div>
+    </div>
+
+    <div class="blank"></div>
+</div>
+
+        </div>
+    </div>
+     <!-- HELPのモーダルウィンドウ -->
+<div class="modal js-modal">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modalScroll"><div class="ScrollContent">
+        <div class="modal__content">
+        <p>
+            <h1>TaskBGMへようこそ！</h1>
+            <h3>このWEBアプリは、作業と休憩を交互に計測するタイマーサービスです。<br>
+                作業と休憩の間、それぞれ好きな動画をYoutubeからBGMとして流せます。<br>
+                作業の間は自然の環境音などを流して集中しましょう。休憩時には好きな楽曲を流してリフレッシュしましょう！
+            </h3>
+            <h1>使い方</h1>
+            <h3>
+                ①まずは作業と休憩の時間を設定しましょう。<br>
+                ②BGMにしたい動画のURLをYoutubeからコピーし、タスクと休憩のYoutubeURLの欄にペーストした後、となりのsetボタンを押せば準備完了です！<br>
+                ③タスクのスタートボタンを押して作業を開始しましょう！タイマーが終わると、休憩のタイマーに自動で切り替わります。休憩後はまた作業のタイマーが動きます。<br>
+                （事前に音量調節したい場合は、動画をクリックして再生し、音量を調整してから一時停止。その後タイマーをスタートさせるのがおすすめです。）<br>
+            </h3>
+            <h1>その他仕様</h1>
+            <h3>
+                ・タイマー中に停止ボタンを押すと、動画も停止します。また、タイマーが停止している間は隣のリセットボタンが有効化になります。タイマーはリセットされますが動画の再生時間はリセットされません。<br>
+                ・デフォルトでセットされている動画は個人的なおすすめBGMです。表示されていない場合はsetボタンを押し直して下さい。<br>
+                ・動画をクリックすると動画の停止ができますが、タイマーは停止されません<br>
+                ・デフォルトで設定されている時間は、作業時間25分、休憩5分となっています。これはポモドーロタイマーと呼ばれており、集中して作業に取り組むのに適した時間になっています。時間設定に悩んだ方はご活用ください。<br>
+                ・二つの動画は音量がそれぞれフェードし、自然に切り替わります。どちらかのタイマーが5秒以下だとフェードしません。<br>
+                ・二つの動画の音量はそれぞれ独立して調整できます。<br>
+                ・作業中にBGMがいらない場合は音量をミュートするか、YoutubeURLを空にしてからsetボタンを押してください。<br>
+            </h3>
+        </p>
+        <a class="js-modal-close" href="">閉じる</a>
+        </div><!--modal__inner-->
+    </div></div>
+</div><!--modal-->
+</div>
+
+
+            
+    <!-- 
+    <div class="countdown-container">
+        <p class="time"><span id="hour"></span>:</p>
+        <p class="time"><span id="min"></span>:</p>
+        <p class="time"><span id="sec"></span></p>
+    </div>
+     -->
+    <script src="./app.js"></script>
+    <script src="./TextClick.js"></script>
+    <script src="./header.js"></script>
+    <script src="./backgroundColor.js"></script>
+
+    <!-- <script src="./progressbar</script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script> -->
+
+    <!-- icon用　loniicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
