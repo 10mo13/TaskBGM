@@ -14,10 +14,10 @@
     /* background: linear-gradient(to right, rgb(72, 216, 144), rgb(106, 209, 214)); */
     background: linear-gradient(to right, rgb(72, 216, 144), rgb(106, 209, 214));
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     /* width:16em; */
     margin:0 auto;
-    min-width: 600px;
+    /* min-width: 600px; */
     /* transition: all 0.4s;  バグ */
     z-index: 0;
     position: relative;
@@ -32,7 +32,7 @@
     margin:0 auto;
     position: absolute;
     left: 0;
-    min-width: 600px;
+    /* min-width: 600px; */
     z-index: -1;
     opacity: 1;
     transition: opacity 0.5s;
@@ -46,7 +46,7 @@
     margin:0 auto;
     position: absolute;
     left: 0;
-    min-width: 600px;
+    /* min-width: 600px; */
     z-index: -2;
 
     top: 50%;
@@ -204,7 +204,7 @@ body{
     background-size: cover;
     /* color: #fff; */
 
-    min-width: 500px;  /*画面の最小幅*/
+    /* min-width: 500px; */
 }
 
 .mask{
@@ -544,8 +544,8 @@ circle {
 #bargroup1 ,#bargroup2{
     /* width: 200px; */
     height: auto;
-    width: 40%;
-    min-width: 300px;
+    width: 60%;
+    /* min-width: 300px; */
     max-width: 450px;
     padding: 15px;
 }
@@ -615,7 +615,7 @@ circle {
 
 .YoutubeURL{
     width: 40vw;
-    min-width: 200px;
+    /* min-width: 200px; */
     max-width: 400px;
     height: 40px;
     /* background-color:transparent; */
