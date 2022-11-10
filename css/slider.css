@@ -1,0 +1,48 @@
+#bar1 {
+    transition: all 0.3s;
+  }
+  #bar2{
+    transition: all 0.3s;
+  }
+  
+  /* スライダーの設定 */
+  .input-range{
+      margin-top: -40px;
+      position: relative;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.346);
+      height: 10px;
+      width: 100%;
+      border-radius: 15px;
+      outline: 0;
+  }
+  
+  .input-range::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      background:rgb(255, 255, 255);
+      height: 20px;
+      width: 20px;
+      border-radius:50%;
+  }
+  
+  .bar1, .bar2{
+      margin-top: -15px;
+      height: 10px;
+      background   : white;
+      border-radius: 15px;
+  }
+  
+  
+  .input-range::-moz-range-track{
+      background: linear-gradient(90deg,black 50%,grey 50%);
+      width: 100%;
+  }
+  
+  #bargroup1 ,#bargroup2{
+      height: auto;
+      width: 60%;
+      max-width: 450px;
+      padding: 15px;
+  }

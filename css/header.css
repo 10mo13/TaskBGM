@@ -1,0 +1,83 @@
+header {
+    width: 100%;
+    padding: 2px 0% 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+header h1.logo{
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #808080;
+}
+.logoImg{
+    height: 40px;
+    width: 40px;
+    margin-left: 2vw;
+    filter: drop-shadow(2px 2px 1px #808080);
+}
+
+a {	
+    text-decoration: none;
+    color: #f6f6f6;
+ }
+
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+ }
+
+ li {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+ }
+
+ nav.pc-nav {
+    margin: 0 0 0 auto;
+    margin-right: 5vw;
+ }
+
+ nav ul li a{
+    transition: all 0.2s;
+ }
+
+ nav ul li a:hover {
+    color: rgb(74, 192, 255);
+ }
+
+
+ /* ↓は全て、メインコンテンツとヘッダーが重なる部分を透過するCSS */
+ .Box{
+   max-width: auto;
+   height: 100%;
+
+   background-repeat: no-repeat;
+   background-position: 100% 100%;
+   background-size: cover;
+
+}
+
+.mask{
+   height: 100%;
+
+   /* 上は6％から10％にかけて消えるマスクグラデーション。下は97から100％ */
+   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 6%, black 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 94%);
+   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 6%, black 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 94%);
+   position: relative;
+}
+
+.maskScroll{
+   overflow-y: scroll;
+   box-sizing: border-box;
+   height: 100%;
+}
+
+.maskScroll::-webkit-scrollbar{
+   display: none;
+}

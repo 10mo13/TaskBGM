@@ -21,12 +21,11 @@
                 <li><a href="javascript:ToTask();">TASK</a></li>
                 <li><a href="javascript:ToBreak();">BREAK</a></li>
                 <li><a class="js-modal-open" href="">HELP</a></li>
-                <!-- <li><a href="#">CONTACT</a></li> -->
             </ul>
         </nav>
     </header>
 
-    <div class="main">
+<div class="main">
 
         <div class="Box">
             <div class="mask">
@@ -37,9 +36,6 @@
     <br>
 
 
-    <!-- <div class="flex">
-    <h2>タスク</h2>
-    </div> -->
 <div id="TaskHeight">
     <!-- ベースとなる範囲。タイマーの動作状況によって、SetDisplayクラスとCountDisplayクラスをJSからjQueryを操作し、フェードで切り替える -->
 <div class="TimerBackground1">
@@ -48,14 +44,8 @@
             <div class="flex">
                 <h2>タスク</h2>
                 </div>
-    <!-- <h1 id="TimerDisplay">
-        <div class="flex">
-            <div id="largehour1" class="time_display"><span id="hour_display">00</span></div>:
-            <div id="largeminute1"class="time_display"><span id="minute_display">00</span></div>:
-            <div id="largesecond1" class="time_display"><span id="second_display">30</span></div>
-        </div>
-    </h1><br> -->
-    <h1 id="TimerDisplay">
+
+    <h1 class="TimerDisplay">
         <div class="flex">
             <div class="time_display"><span>00</span></div>:
             <div class="time_display"><span>25</span></div>:
@@ -76,7 +66,7 @@
 
     <div class="CountDisplay1">
         <div class="circle" id="container">
-            <h1 id="TimerDisplay" class="CountDisplay1">
+            <h1 id="" class="TimerDisplay CountDisplay1">
                 <biv class="TaskName">タスク</biv>
                 <div class="flex">
                     <div id="largehour1" class="time_display1"><span id="hour_display">00</span></div>:
@@ -87,11 +77,7 @@
             <svg id="svg" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                 <circle r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
                 <circle id="bar1" r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
-                <!-- ↑stroke-dasharray="565.48(default)"の中はr * 2 * 3.14の数値を入れる(rのデフォルトは90)  -->
-                <!-- <text id="num" x="50%" y="50%">100%</text> -->
               </svg>
-                <!-- <label for="percent">Type a percent!</label>
-                <input id="percent" name="percent"> -->
 
         </div>
     </div>
@@ -102,13 +88,12 @@
     <div class="flex">
 
         <div class="ResetIcon">
-            <!-- name="reload-circle-outline" -->
+
             <ion-icon name="reload-outline" class="ResetDisplay1" style="font-size:50px" ></ion-icon>
             <input type="button" id="reset_button" value="" onclick="reset(1)" disabled>
             <div class="CircleBack2">
                 <svg id="ResetSVG" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <circle r="41" cx="42" cy="42" fill="transparent" stroke-dasharray="942" stroke-dashoffset="0"></circle>
-                    <!-- <circle id="bar1" r="150" cx="200" cy="200" fill="transparent" stroke-dasharray="942.47" stroke-dashoffset="0"></circle> -->
                   </svg>
             </div>
         </div>
@@ -146,11 +131,6 @@
 
     
 <div class="blank"></div>
-    
-    <!-- <br><br><br><br>
-    <div class="flex">
-    <h2>休憩</h2><br>
-    </div> -->
 
 <div class="TimerBackground2">
     
@@ -158,15 +138,8 @@
             <div class="flex">
                 <h2>休憩</h2><br>
                 </div>
-    <!-- <h1 id="TimerDisplay">
-        <div class="flex">
-            <div id="largehour2" class="time_display"><span id="hour_display">00</span></div>:
-            <div id="largeminute2"class="time_display"><span id="minute_display">00</span></div>:
-            <div id="largesecond2" class="time_display"><span id="second_display">30</span></div>
-        </div>
-    </h1><br> -->
 
-    <h1 id="TimerDisplay">
+    <h1 class="TimerDisplay">
         <div class="flex">
             <div class="time_display"><span>00</span></div>:
             <div class="time_display"><span>05</span></div>:
@@ -185,7 +158,7 @@
 
     <div class="CountDisplay2">
         <div class="circle" id="container">
-            <h1 id="TimerDisplay" class="CountDisplay2">
+            <h1 id="" class="TimerDisplay CountDisplay2">
                 <biv class="TaskName">休憩</biv>
                 <div class="flex">
                     <div id="largehour2" class="1"><span id="hour_display">00</span></div>:
@@ -196,11 +169,7 @@
             <svg id="svg" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                 <circle r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
                 <circle id="bar2" r="190" cx="200" cy="200" fill="transparent" stroke-dasharray="1193.77" stroke-dashoffset="0"></circle>
-                <!-- ↑stroke-dasharray="565.48(default)"の中はr * 2 * 3.14の数値を入れる(rのデフォルトは90)  -->
-                <!-- <text id="num" x="50%" y="50%">100%</text> -->
               </svg>
-                <!-- <label for="percent">Type a percent!</label>
-                <input id="percent" name="percent"> -->
 
         </div>
     </div>
@@ -215,7 +184,6 @@
                 <svg id="ResetSVG" viewPort="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <circle r="41" cx="42" cy="42" fill="transparent" stroke-dasharray="942" stroke-dashoffset="0"></circle>
                 </svg>
-                <!-- <input type="button" id="stop_button2" value="stop" style="background-color:aliceblue;text-decoration-color: aqua" onclick="stop(2,true)" disabled> -->
                 
             </div>
         </div>
@@ -288,20 +256,19 @@
 
 
             
-    <!-- 
-    <div class="countdown-container">
-        <p class="time"><span id="hour"></span>:</p>
-        <p class="time"><span id="min"></span>:</p>
-        <p class="time"><span id="sec"></span></p>
-    </div>
-     -->
-    <script src="./app.js"></script>
-    <script src="./TextClick.js"></script>
-    <script src="./header.js"></script>
-    <script src="./backgroundColor.js"></script>
 
-    <!-- <script src="./progressbar</script>
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script> -->
+    
+    <script src="./js/YoutubeURL.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/backgroundColor.js"></script>
+    <script src="./js/button.js"></script>
+    <script src="./js/TimerDisplay.js"></script>
+    <script src="./js/slider.js"></script>
+    <script src="./js/VolumeFade.js"></script>
+    <script src="./js/YoutubeMovie.js"></script>
+    <script src="./js/TimerCircle.js"></script>
+    <script src="./app.js"></script>
+
 
     <!-- icon用　loniicons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

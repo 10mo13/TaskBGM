@@ -1,0 +1,104 @@
+.time{
+    margin-bottom: 20px;
+}
+
+
+.TimerBackground1, .TimerBackground2{
+    box-sizing: border-box;
+    height: 425px;
+    position: relative;
+    
+}
+
+.SetDisplay1,
+.SetDisplay2,
+.circle,
+.CountDisplay1,
+.CountDisplay2{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.TaskName{
+    font-size: 25px;
+    margin-top: -75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* タイマー周りのサークル */
+.circle{
+    width: 100%;
+}
+
+#svg{
+    width: 400px;
+    height: 400px;
+    transform: rotate(-90deg);
+    display:block;
+    margin: 0 auto;
+}
+circle {
+    transition: stroke-dashoffset 0.3s linear; /*遅すぎるとバーの追従が合わないので速め*/
+    stroke: #ffffff;
+    stroke-width: 0.4em;  /*線の太さ*/
+}
+
+.TimerDisplay{
+    font-size: 50px;
+}
+
+.CountDisplay1, .CountDisplay2{
+    color: #ffffff;
+    width: 100%;
+    margin-top: 1%; 
+}
+
+.CircleBack{
+    background: rgba(255, 255, 255, 0.208);
+    border-radius: 50%;
+    z-index: -1;
+    width: 90px;
+    height: 90px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    box-shadow: 4px 6px 7px 1px rgba(108, 85, 97, 0.308);
+}
+.CircleBack2{
+    z-index: -1;
+    width: 84px;
+    height: 84px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    border-radius: 50%;
+    box-shadow: 4px 6px 7px 1px rgba(108, 85, 97, 0.308);
+}
+#ResetSVG{
+    width: 100%;
+    height: 100%;
+    display:block;
+    margin: 0 auto;
+}
+.CircleBack2 circle{
+    stroke: rgba(247, 231, 238, 0.708);
+    stroke-width: 0.1rem;
+}

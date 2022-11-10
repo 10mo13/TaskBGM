@@ -1,0 +1,67 @@
+.StartDisplay1, .StopDisplay1, .ResetDisplay1,
+.StartDisplay2, .StopDisplay2, .ResetDisplay2{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+    transition: all 0.4s;
+}
+
+.StartDisplay1, .StopDisplay1,
+.StartDisplay2, .StopDisplay2{
+    color: rgb(255, 255, 255);
+}
+
+.ResetDisplay1, .ResetDisplay2{
+    color: rgba(239, 239, 239, 0.3);
+}
+
+
+.StartIcon, .ResetIcon{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.ResetIcon{
+    margin-right: 80px;
+    margin-left: 40px;
+}
+
+.StopIcon{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+}
+
+#start_button, #reset_button,
+#start_button2, #reset_button2{
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+}
